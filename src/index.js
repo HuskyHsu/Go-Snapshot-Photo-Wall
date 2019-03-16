@@ -12,7 +12,7 @@ const asyncRun = async () => {
     const d = await data.get();
     if (d.success) {
         d.data.sort(function(a, b) {
-            return b.datetime - a.datetime;
+            return a.datetime - b.datetime;
         });
         for (let photo of d.data) {
             append_photo(photo);
@@ -126,5 +126,5 @@ function append_photo(photo) {
     div.append(p);
     div.dataset.pmid = photo_info[0];
     div.dataset.pm = photo_info[1];
-    photos_dom.append(div);
+    photos_dom.insertBefore(div, photos_dom.childNodes[0]);
 }
