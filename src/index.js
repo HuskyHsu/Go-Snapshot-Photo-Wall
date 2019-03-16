@@ -3,25 +3,19 @@ import pmList from './pmlist';
 import './style.css';
 import './modal.css';
 
+import logo from './logo.png';
+// import favicon from './favicon.ico';
+
 const photos_dom = document.getElementById('photos');
 
 const asyncRun = async () => {
     const d = await data.get();
     if (d.success) {
+        d.data.sort(function(a, b) {
+            return b.datetime - a.datetime;
+        });
         for (let photo of d.data) {
-            // console.log(photo.link);
-            let div = document.createElement('div');
-            let img = document.createElement('img');
-            let p = document.createElement('p');
-
-            let photo_info = photo.description.split('-');
-            img.src = photo.link;
-            p.innerHTML = `${photo.title} <span>by ${photo_info[2]}</span>`;
-            div.append(img);
-            div.append(p);
-            div.dataset.pmid = photo_info[0];
-            div.dataset.pm = photo_info[1];
-            photos_dom.append(div);
+            append_photo(photo);
         }
     }
 };
@@ -82,7 +76,7 @@ document.getElementById('file').onchange = (e) => {
 
         var fr = new FileReader();
         fr.onload = function () {
-            document.querySelector('.fileinput img').src = fr.result;
+            document.querySelector('#add_modal img').src = fr.result;
         }
         fr.readAsDataURL(files[0]);
     }
@@ -115,18 +109,22 @@ document.querySelector('#add_modal [type="submit"]').onclick = async () => {
     
     if (d.success) {
         let photo = d.data;
-        let div = document.createElement('div');
-        let img = document.createElement('img');
-        let p = document.createElement('p');
-
-        let photo_info = photo.description.split('-');
-        img.src = photo.link;
-        p.innerHTML = `${photo.title} <span>by ${photo_info[2]}</span>`;
-        div.append(img);
-        div.append(p);
-        div.dataset.pmid = photo_info[0];
-        div.dataset.pm = photo_info[1];
-        photos_dom.append(div);
+        append_photo(photo);
     }
     modal.style.display = "none";
 };
+
+function append_photo(photo) {
+    let div = document.createElement('div');
+    let img = document.createElement('img');
+    let p = document.createElement('p');
+
+    let photo_info = photo.description.split('-');
+    img.src = photo.link;
+    p.innerHTML = `${photo.title} <span>by ${photo_info[2]}</span>`;
+    div.append(img);
+    div.append(p);
+    div.dataset.pmid = photo_info[0];
+    div.dataset.pm = photo_info[1];
+    photos_dom.append(div);
+}

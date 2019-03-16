@@ -3,16 +3,19 @@
 
 <head>
     <title>GO snapshot</title>
+    <link rel="SHORTCUT ICON" href="./images/favicon.ico">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC&amp;subset=chinese-traditional" rel="stylesheet">
 </head>
 
 <body>
     <div class="header">
+        <img src="./images/logo.png" alt="">
         <a href="#" class="logo">GO snapshot 照片牆</a>
         <div class="header-right">
             <a href="#" id="upload">上傳照片</a>
-            <a href="#">篩選</a>
+            <!-- <a href="#">篩選</a> -->
         </div>
     </div>
     <section id="photos">
@@ -25,17 +28,17 @@
                 <h4>上傳照片</h4>
             </div>
             <div class="modal-body">
-                <div style="white-space:nowrap">
+                <div>
                     <label class="label" for="title">標題</label>
                     <input type="text" id="title" name="title" placeholder="請輸入照片描述...">
                 </div>
 
-                <div style="white-space:nowrap">
+                <div>
                     <label class="label" for="user_name">上傳者</label>
-                    <input type="text" id="user_name" name="user_name" placeholder="你的暱稱...">
+                    <input type="text" id="user_name" name="user_name" placeholder="您的暱稱...">
                 </div>
 
-                <div style="white-space:nowrap">
+                <div>
                     <label class="label" for="pm_name">主角</label>
                     <input type="text" name="pm_name" placeholder="請輸入寵物名稱.." id="pm_name">
                 </div>
@@ -43,13 +46,16 @@
                 <div class="results" id="pm_meets" style="display: block;">
                 </div>
 
-                <div style="white-space:nowrap">
+                <div>
                     <label class="label" for="file">照片</label>
                     <label class="fileinput">
                         <span>請點選上傳照片</span>
-                        <input type="file" id="file" id="file" accept="image/*"><br>
-                        <img src="" alt="">
+                        <input type="file" id="file" id="file" accept="image/*">
                     </label>
+                </div>
+
+                <div>
+                    <img src="" alt="">
                 </div>
 
                 <input type="submit" value="上傳">
