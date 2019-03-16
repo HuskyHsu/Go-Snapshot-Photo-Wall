@@ -25,4 +25,18 @@ const get = async function () {
     return response.json();
 }
 
-export {get}
+const post = async function (formData) {
+
+    const path = '/image'
+    const response = await fetch(`${host}${path}`, {
+        method: 'POST',
+        headers: {
+            'Authorization': `Bearer c1a0b11db42b730983644bf7087d1aa031b6c415`
+        },
+        body: formData
+    });
+
+    return response.json();
+}
+
+export {get, post}

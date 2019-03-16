@@ -89,16 +89,44 @@ document.getElementById('file').onchange = (e) => {
 }
 
 // 上傳
-document.querySelector('#add_modal [type="submit"]').onclick = () => {
+document.querySelector('#add_modal [type="submit"]').onclick = async () => {
     const title = document.querySelector('#add_modal input[name="title"]').value;
     const user = document.querySelector('#add_modal input[name="user_name"]').value || "匿名";
     const pm = document.querySelector('#add_modal input[name="pm_name"]').value;
     const file = document.querySelector('#add_modal input[type="file"]').files[0];
 
-    console.log({
-        title: title,
-        user: user,
-        pm: pm,
-        file: file,
-    })
+    if (pm.indexOf('-') == -1 || pm == ""){
+        alert('請輸入或點選主角');
+        return 0
+    }
+
+    if (title == "" || typeof file === 'undefined'){
+        alert('請檢查標題與檔案');
+        return 0
+    }
+
+    let formData = new FormData();
+    formData.append('album', 'y9yElNB');
+    formData.append('title', title);
+    formData.append('description', `${pm}-${user}`);
+    formData.append('image', file);
+
+    const d = await data.post(formData);
+    
+    if (d.success) {
+        let photo = d.data;
+        let div = document.createElement('div');
+        let img = document.createElement('img');
+        let p = document.createElement('p');
+
+        let photo_info = photo.description.split('-');
+        img.src = photo.link;
+        p.innerHTML = `${photo.title} <span>by ${photo_info[2]}</span>`;
+        div.append(img);
+        div.append(p);
+        div.dataset.pmid = photo_info[0];
+        div.dataset.pm = photo_info[1];
+        photos_dom.append(div);
+    }
+    modal.style.display = "none";
 };
