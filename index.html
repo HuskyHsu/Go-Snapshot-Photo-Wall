@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>GO snapshot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC&amp;subset=chinese-traditional" rel="stylesheet">
+<link href="main.css?4667b63e512c5b9e57e1" rel="stylesheet"></head>
+
+<body>
+    <div class="header">
+        <a href="#" class="logo">GO snapshot 照片牆</a>
+        <div class="header-right">
+            <a href="#" id="upload">上傳照片</a>
+            <a href="#">篩選</a>
+        </div>
+    </div>
+    <section id="photos">
+    </section>
+
+    <div id="add_modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h4>上傳照片</h4>
+            </div>
+            <div class="modal-body">
+                <div style="white-space:nowrap">
+                    <label class="label" for="title">標題</label>
+                    <input type="text" id="title" name="title" placeholder="請輸入照片描述...">
+                </div>
+
+                <div style="white-space:nowrap">
+                    <label class="label" for="user_name">上傳者</label>
+                    <input type="text" id="user_name" name="user_name" placeholder="你的暱稱...">
+                </div>
+
+                <div style="white-space:nowrap">
+                    <label class="label" for="pm_name">主角</label>
+                    <input type="text" name="pm_name" placeholder="請輸入寵物名稱.." id="pm_name">
+                </div>
+
+                <div class="results" id="pm_meets" style="display: block;">
+                </div>
+
+                <div style="white-space:nowrap">
+                    <label class="label" for="file">照片</label>
+                    <label class="fileinput">
+                        <span>請點選上傳照片</span>
+                        <input type="file" id="file" id="file"><br>
+                        <img src="" alt="">
+                    </label>
+                </div>
+
+                <input type="submit" value="上傳">
+            </div>
+            <!-- <div class="modal-footer">
+                <h3>Modal Footer</h3>
+            </div> -->
+        </div>
+    </div>
+<script type="text/javascript" src="bundle.js?4667b63e512c5b9e57e1"></script></body>
+
+</html>
