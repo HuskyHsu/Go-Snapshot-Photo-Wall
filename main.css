@@ -103,6 +103,7 @@ body {
     background-color: white;
     border-radius: 4px;
     box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.3);
+    break-inside: avoid;
 }
 
 #photos>div:not(:first-child) {
