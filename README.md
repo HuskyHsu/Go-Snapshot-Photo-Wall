@@ -9,3 +9,8 @@ file title:主題(自行命名)
 
 file description:[PM ID]-[PM name]-[uploaded by]
 ```
+
+#### 上傳特定資料夾
+```
+git subtree push --prefix dist origin gh-pages
+```
