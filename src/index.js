@@ -120,7 +120,7 @@ function append_photo(photo) {
     let p = document.createElement('p');
 
     let photo_info = photo.description.split('-');
-    img.src = photo.link;
+    img.src = `https://images.weserv.nl/?url=i.imgur.com/${photo.id}.jpg&w=320`;
     p.innerHTML = `${photo.title} <span>by ${photo_info[2]}</span>`;
     div.append(img);
     div.append(p);
